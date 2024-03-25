@@ -1,0 +1,14 @@
+table {
+    width: 60%;
+    margin-top: 20px;
+    margin-left: 17%;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+th {
+    background-color: black;
+    color: white;
+}
