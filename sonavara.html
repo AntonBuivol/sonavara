@@ -1,5 +1,5 @@
 <script>
-    //esimese massiivi loomine
+    //esimese massiivi
     const sonad=[
         'algorütm',
         'kavand',
@@ -30,6 +30,7 @@
         'arendamine',
         'valideerimine'
     ];
+    //teine massiiv
     const venesonad=[
         'алгоритм',
         'план',
@@ -60,6 +61,8 @@
         'разработка',
         'валидация'
     ];
+    //Esimene veeru funktsioonid
+    //Kirjuta random sõna
     function randomSonad(){
 
         //random sõnad - arv
@@ -72,8 +75,11 @@
 
         document.getElementById("random-sona").innerHTML=sona;
     }
+    //Kontrollimine
     function kontrollima() {
         const sona = document.getElementById("random-sona").innerText;
+
+        //Võtab sõna, mille kasutaja kirjutas
         const venesona = document.getElementById("kontroll").value;
 
         const indEesti = sonad.indexOf(sona);
@@ -86,6 +92,8 @@
         }
     }
 
+    //Teise veeru funktsioonid
+    //Kirjuta random sõna
     function randomSonad2(){
 
         //random sõnad - arv
@@ -98,8 +106,11 @@
 
         document.getElementById("random-sona2").innerHTML=venesona;
     }
+    //Kontrollimine
     function kontrollima2() {
         const venesona = document.getElementById("random-sona2").innerText;
+
+        //Võtab sõna, mille kasutaja kirjutas
         const sona = document.getElementById("kontroll2").value;
 
         const indEesti = sonad.indexOf(sona);
@@ -129,6 +140,7 @@
             <input type="button" value="Random" onclick="randomSonad()">
         </td>
 
+        <!--Teine veerg vene-eesti-->
         <td>
             <input type="button" value="Random" onclick="randomSonad2()">
         </td>
@@ -152,7 +164,7 @@
         </td>
 
         <td>
-            <label for="kontroll">Kirjuta sõna venekeeles</label>
+            <label for="kontroll">Kirjuta sõna eestikeeles</label>
             <input type="text" id="kontroll2" onchange="kontrollima2()">
             <div id="vastus2"></div>
         </td>
