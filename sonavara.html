@@ -1,7 +1,6 @@
 <script>
     //esimese massiivi loomine
     const sonad=[
-        'teostus',
         'algorütm',
         'kavand',
         'kasutajaliides',
@@ -17,7 +16,7 @@
         'iteratsioon',
         'parandus',
         'koskmudel',
-        'agiilne mudel' ,
+        'agiilne mudel',
         'spiraalne mudel',
         'inkrementaalne mudel',
         'nõudmised',
@@ -32,7 +31,6 @@
         'valideerimine'
     ];
     const venesonad=[
-        'реализация',
         'алгоритм',
         'план',
         'пользовательский интерфейс',
@@ -74,7 +72,6 @@
 
         document.getElementById("random-sona").innerHTML=sona;
     }
-
     function kontrollima() {
         const sona = document.getElementById("random-sona").innerText;
         const venesona = document.getElementById("kontroll").value;
@@ -88,6 +85,32 @@
             document.getElementById("vastus").innerHTML = "Vale!";
         }
     }
+
+    function randomSonad2(){
+
+        //random sõnad - arv
+        const juhuslikSona = Math.floor(Math.random()*venesonad.length);
+
+        //võtme random sõna massivist
+        const venesona = venesonad[juhuslikSona];
+
+        //lisame HTML lehele
+
+        document.getElementById("random-sona2").innerHTML=venesona;
+    }
+    function kontrollima2() {
+        const venesona = document.getElementById("random-sona2").innerText;
+        const sona = document.getElementById("kontroll2").value;
+
+        const indEesti = sonad.indexOf(sona);
+        const indVene = venesonad.indexOf(venesona);
+
+        if (indEesti === indVene && indEesti !== -1 && indVene !== -1) {
+            document.getElementById("vastus2").innerHTML = "Õige!";
+        } else {
+            document.getElementById("vastus2").innerHTML = "Vale!";
+        }
+    }
 </script>
 
 <!DOCTYPE html>
@@ -99,10 +122,42 @@
 </head>
 <body>
 <h1>Tarkvara sõnad</h1>
-<input type="button" value="Random" onclick="randomSonad()">
-<div id="random-sona"></div>
-<label for="kontroll">Kirjuta sõna venekeeles</label>
-<input type="text" id="kontroll" onchange="kontrollima()">
-<div id="vastus"></div>
+
+<table border="black solid 1px">
+    <tr>
+        <td>
+            <input type="button" value="Random" onclick="randomSonad()">
+        </td>
+
+        <td>
+            <input type="button" value="Random" onclick="randomSonad2()">
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <div id="random-sona">Siin on random sõna</div>
+        </td>
+
+        <td>
+            <div id="random-sona2">Siin on random sõna</div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <label for="kontroll">Kirjuta sõna venekeeles</label>
+            <input type="text" id="kontroll" onchange="kontrollima()">
+            <div id="vastus"></div>
+        </td>
+
+        <td>
+            <label for="kontroll">Kirjuta sõna venekeeles</label>
+            <input type="text" id="kontroll2" onchange="kontrollima2()">
+            <div id="vastus2"></div>
+        </td>
+    </tr>
+</table>
+
 </body>
 </html>
